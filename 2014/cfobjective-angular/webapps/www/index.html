@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Adding Angular to Existing Apps</title>
+
+    <meta name="description" content="A presentation on adding AngularJS javascript framework to existing web applications given at cf.objective() - May 2014">
+    <meta name="author" content="Sharon DiOrio">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="/common/js/reveal/css/reveal.min.css">
+    <link rel="stylesheet" href="/common/js/reveal/css/theme/beige.css" id="theme">
+    <link rel="stylesheet" href="/common/css/custom.css" id="theme-overrides">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="/common/css/xcode.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write( '<link rel="stylesheet" href="/common/js/reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="/js/reveal/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <style type="text/css">
+    .reveal section img {
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="reveal">
+
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides" id="slides-element">
+
+<!--             <section data-markdown="adding-angular.md"
+                     data-separator="^Slide:"
+                     data-vertical="^\n\n"
+                     data-notes="^Note:">
+            </section> -->
+
+            <section>
+<h1> Adding AngularJS to Existing Apps</h1>
+<h3> Getting the UI Sugar...Without the jQuery Pain</h3>
+
+cf.objective() - May 2014
+
+Sharon DiOrio &bull; [@sharondio](https://twitter.com/sharondio)
+
+</section><section>
+
+<h2> My story</h2>
+<h3> ColdFusion was my life</h3>
+<img src="/common/images/old_school.png">
+
+</section><section>
+
+<h2> Blatant Brag Slide</h2>
+
+<img src="/common/images/achieve.jpeg" class="logo">
+<img src="/common/images/bcg.jpeg" class="logo">
+<img src="/common/images/bgcb.jpeg" class="logo">
+<img src="/common/images/hasbro.jpeg" class="logo">
+<img src="/common/images/reebok.jpeg" class="logo">
+<img src="/common/images/sentient.jpeg" class="logo">
+<img src="/common/images/stjude.jpeg" class="logo">
+
+</section><section>
+
+<h2> Why move to Javascript?</h2>
+
+</section><section>
+
+<h2> Why Angular?</h2>
+
+
+<img src="/common/images/chart_2011.png" width="800">
+<p>The choice wasn't so clear in 2011</p>
+
+</section><section>
+
+<h2> Why Not Angular?</h2>
+
+
+<img src="/common/images/chart.png" width="800">
+<p>2014 tells a different story</p>
+
+</section><section>
+
+<h2>Why this talk?</h2>
+<p>There are plenty of demos, do we need more?</p>
+<div class="fragment fade-in"><img src="/common/images/pointy-haired-boss.jpg" /></div>
+
+</section><section>
+
+<h2> Where are you now with JS?</h2>
+
+<ul>
+  <li class="fragment fade-in">Avoids Javascript like the plague</li>
+  <li class="fragment fade-in">Enough jQuery to add it to your LinkedIn profile</li>
+  <li class="fragment fade-in">A lot of jQuery and JS, but disorganized</li>
+  <li class="fragment fade-in">A light framework (backbone.js)</li>
+  <li class="fragment fade-in">A full framework (AngularJS, ember.js)</li>
+</ul>
+
+<aside class="notes">
+  Show of hands.
+</aside>
+
+</section><section>
+
+<h2>jQuery...Awesome and Awful</h2>
+
+<p>Imperative vs. Declarative</p>
+
+</section><section>
+
+<h3>Imperative:</h3>
+<p>Explicitly telling the DOM what to do and how to do it.</h3>
+
+<pre><code data-trim contenteditable>
+function next(selector) {
+    var $element = $(selector);
+
+    return $element
+        .children(":eq(0)")
+        .add($element.next())
+        .add($element.parents().filter(function() {
+            return $(this).next().length > 0;
+        }).next()).first();
+}
+</code></pre>
+<p class="fragment fade-in"><small>Nobody really liked this...</small></p>
+<p class="fragment fade-in"><small>...Except Ray Camden maybe.</small></p>
+
+</section><section>
+
+<h3>Declarative:</h3>
+<p>Describing what we want, and letting the underlying systems figure out how to make it happen.</p>
+<pre><code data-trim contenteditable>
+<div ng-repeat="item in myData">
+    {{item.name}} {{item.address}}
+</div>
+</code></pre>
+
+</section><section>
+
+<h2>Look familiar?</h2>
+
+<pre><code data-trim contenteditable>
+<cfloop query="myData">
+    #name# #address# ...
+</cfloop>
+</code></pre>
+
+</section><section>
+
+<h2> OK, nice slides...but...</h2>
+<blockquote>"Talk is cheap. Show me the code."</blockquote>
+
+<small>~ Linus Torvalds</small>
+
+</section><section>
+
+<h2> Demo 1</h2>
+Bootstrapping a complete AngularJS Application
+
+<pre><code data-trim contenteditable>
+&lt;!DOCTYPE html&gt;
+&lt;html ng-app&gt;
+    &lt;head&gt;
+      &lt;title&gt;Adding AngularJS to Existing Apps - Basic App&lt;/title&gt;
+        &lt;script src=&quot;/common/angular/angular.min.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &nbsp;
+    &lt;body&gt;
+        &lt;h2 id=&quot;title&quot;&gt;Adding AngularJS to Existing Apps - Basic App&lt;/h2&gt;
+        &lt;div&gt;
+            Model me: &lt;input ng-model=&quot;my_model&quot;&gt;&lt;br&gt;
+            {{my_model}}
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<small><a href="http://localhost:8888/demos/1-data-binding/">Clicky-Clicky</a></small>
+
+</section><section>
+
+<h2> Demo 2</h2>
+With a controller
+
+<pre><code data-trim contenteditable>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Adding AngularJS to Existing Apps - App Module Controller&lt;/title&gt;
+        &nbsp;
+        &lt;!-- style counts --&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/normalize.css&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.css&quot;&gt;
+        &nbsp;
+        &lt;!-- core scripts --&gt;
+        &lt;script src=&quot;/common/angular/angular.min.js&quot;&gt;&lt;/script&gt;
+        &nbsp;
+        &lt;!-- app scripts --&gt;
+        &lt;script&gt;
+            'use strict';
+            &nbsp;
+            //App module.
+            var app = angular.module('app-module-controller', []);
+            &nbsp;
+            //Controller - I control stuff
+            app.controller('MainCtrl', function($scope) {
+              &nbsp;
+              $scope.title = &quot;App Module Controller&quot;;
+              &nbsp;
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body ng-app=&quot;basic-app-module&quot; ng-controller=&quot;MainCtrl&quot;&gt;
+        &lt;h2 id=&quot;title&quot;&gt;Adding AngularJS to Existing Apps - {{title}}&lt;/h2&gt;
+        &lt;div&gt;&lt;input ng-model=&quot;title&quot;&gt;&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<small><a href="http://localhost:8888/demos/2-app-module-controller">Clicky-Clicky</a></small>
+
+</section><section>
+
+<h2>What the [bleep] is $scope?!?</h2>
+
+<small><a href="http://docs.angularjs.org/guide/scope">http://docs.angularjs.org/guide/scope</a></small>
+<p class="fragment fade-in">$scope is a shared namespace between views and controllers.</p>
+
+<aside class="notes">
+  $scope actually works somewhat like CF variable scopes. It is a shared namespace between the view and the controller.
+</aside>
+
+</section><section>
+
+<h2> Demo 3</h2>
+A controller function used in the view
+
+<pre><code data-trim contenteditable>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Adding AngularJS to Existing Apps - App-Module-Controller-Function&lt;/title&gt;
+        &nbsp;
+        &lt;!-- style counts --&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/normalize.css&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.css&quot;&gt;
+        &nbsp;
+        &lt;!-- core scripts --&gt;
+        &lt;script src=&quot;/common/angular/angular.min.js&quot;&gt;&lt;/script&gt;
+        &nbsp;
+        &lt;!-- app scripts --&gt;
+        &lt;script&gt;
+            'use strict';
+            &nbsp;
+            //App module.
+            var app = angular.module('basic-app-module', []);
+            &nbsp;
+            //Controller - I control stuff
+            app.controller('MainCtrl', function($scope) {
+              &nbsp;
+              $scope.title = &quot;This is cool!&quot;;
+              &nbsp;
+              $scope.changeTitle = function(newTitle) {
+                $scope.title = newTitle;
+              }
+              &nbsp;
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body ng-app=&quot;basic-app-module&quot; ng-controller=&quot;MainCtrl&quot;&gt;
+        &lt;h2 id=&quot;title&quot;&gt;Adding AngularJS to Existing Apps - {{title}}&lt;/h2&gt;
+        &lt;div&gt;&lt;input ng-model=&quot;title&quot;&gt;&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<small><a href="http://localhost:8888/demos/3-app-module-controller-function">Clicky-Clicky</a></small>
+
+</section><section>
+
+<h2> Demo 4</h2>
+Nothing ain't nothing without data
+
+<pre><code data-trim contenteditable>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Adding AngularJS to Existing Apps - With Data&lt;/title&gt;
+        &nbsp;
+        &lt;!-- style counts --&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/normalize.css&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.css&quot;&gt;
+        &nbsp;
+        &lt;!-- core scripts --&gt;
+        &lt;script src=&quot;/common/angular/angular.min.js&quot;&gt;&lt;/script&gt;
+        &nbsp;
+        &lt;!-- app scripts --&gt;
+        &lt;script&gt;
+            'use strict';
+            &nbsp;
+            //App module.
+            var app = angular.module('with-data', []);
+            &nbsp;
+            app.controller('MainCtrl', function($scope, $http) {
+              &nbsp;
+              $scope.title = &quot;With Data&quot;;
+              &nbsp;
+              // This really belongs in a service, but it's fine in the controller for now.
+              $scope.gimme = function() {
+                $http.get('../../static_data/beers.json').then(function(results) {
+                  $scope.beers = results.data;
+                });
+              }
+              &nbsp;
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body ng-app=&quot;with-data&quot; ng-controller=&quot;MainCtrl&quot;&gt;
+        &lt;h2 id=&quot;title&quot;&gt;Adding AngularJS to Existing Apps - {{title}}&lt;/h2&gt;
+        &lt;button ng-click="gimme()"&gt;Gimme beers&lt;/button&gt;
+        &lt;div&gt;
+            &lt;ul&gt;
+                &lt;li ng-repeat=&quot;beer in beers | limitTo: 25&quot;&gt;{{beer.NAME}}&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<small><a href="http://localhost:8888/demos/4-with-data">Clicky-Clicky</a></small>
+
+</section><section>
+
+<h2> Demo 5</h2>
+Put data access in a service
+
+<pre><code data-trim contenteditable>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Adding AngularJS to Existing Apps - With Data Service&lt;/title&gt;
+        &nbsp;
+        &lt;!-- style counts --&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/normalize.css&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.css&quot;&gt;
+        &nbsp;
+        &lt;!-- core scripts --&gt;
+        &lt;script src=&quot;/common/angular/angular.min.js&quot;&gt;&lt;/script&gt;
+        &nbsp;
+        &lt;!-- app scripts --&gt;
+        &lt;script&gt;
+            'use strict';
+            &nbsp;
+            //App module.
+            var app = angular.module('with-data-service', []);
+            &nbsp;
+            app.controller('MainCtrl', function($scope, $http, BeerSvc) {
+            &nbsp;
+              $scope.title = &quot;With Data Service&quot;;
+              &nbsp;
+              BeerSvc.get().then(function(data) {
+                $scope.beers = data;
+              });
+              &nbsp;
+            });
+            &nbsp;
+            //App service
+            app.service('BeerSvc', function($http) {
+            &nbsp;
+                this.get =  function() {
+                    return $http.get('data.cfc?method=getBeers').then(function(response) {
+                        return response.data;
+                    });
+                }
+                &nbsp;
+            });
+            &nbsp;
+        &lt;/script&gt;
+        &nbsp;
+    &lt;/head&gt;
+    &lt;body ng-app=&quot;with-data-service&quot; ng-controller=&quot;MainCtrl&quot;&gt;
+        &lt;h2 id=&quot;title&quot;&gt;Adding AngularJS to Existing Apps - {{title}}&lt;/h2&gt;
+        &lt;div&gt;
+            &lt;ul&gt;
+                &lt;li ng-repeat=&quot;beer in beers | limitTo: 25&quot;&gt;{{beer.NAME}}&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<small><a href="http://localhost:8888/demos/5-with-data-service">Clicky-Clicky</a></small>
+
+<aside class="notes">
+
+</section><section>
+
+<h2>One more with a bigger service</h2>
+
+<pre><code data-trim contenteditable>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Adding AngularJS to Existing Apps - Expanded Data Service&lt;/title&gt;
+        &nbsp;
+        &lt;!-- style counts --&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/normalize.css&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.css&quot;&gt;
+        &nbsp;
+        &lt;!-- core scripts --&gt;
+        &lt;script src=&quot;/common/angular/angular.min.js&quot;&gt;&lt;/script&gt;
+        &nbsp;
+        &lt;!-- app scripts --&gt;
+        &lt;script&gt;
+            'use strict';
+            &nbsp;
+            //App module.
+            var app = angular.module('expanded-data-service', []);
+            &nbsp;
+            app.controller('MainCtrl', function($scope, $http, BeerSvc) {
+            &nbsp;
+              $scope.title = &quot;Expanded Data Service&quot;;
+              &nbsp;
+              BeerSvc.get().then(function(data) {
+                $scope.beers = data;
+              });
+              &nbsp;
+              BeerSvc.count().then(function(data) {
+                $scope.beerCount = data;
+              });
+              &nbsp;
+            });
+            &nbsp;
+            //App service
+            app.service('BeerSvc', function($http) {
+                this.get =  function() {
+                    return $http.get('http://sharon.euro-pro.local:8500/beers/data_json.cfc?method=getBeers').then(function(response) {
+                        return response.data;
+                    });
+                }
+                this.count = function() {
+                    return $http.get('http://sharon.euro-pro.local:8500/beers/data_json.cfc?method=getBeerCount').then(function(response) {
+                        return response.data;
+                    });
+                }
+            });
+        &lt;/script&gt;
+        &nbsp;
+    &lt;/head&gt;
+    &lt;body ng-app=&quot;expanded-data-service&quot; ng-controller=&quot;MainCtrl&quot;&gt;
+        &lt;h2 id=&quot;title&quot;&gt;Adding AngularJS to Existing Apps - {{title}}&lt;/h2&gt;
+        &lt;h4&gt;{{beerCount}} beers total.
+        &lt;div&gt;
+            &lt;ul&gt;
+                &lt;li ng-repeat=&quot;beer in beers | limitTo: 25&quot;&gt;{{beer.NAME}}&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<small><a href="http://localhost:8888/demos/6-expanded-data-service">Clicky-Clicky</a></small>
+
+</section><section>
+
+<h2>But what about a real app?</h2>
+
+(My confession, I've never actually added AngularJS to an existing app until now.)
+
+</section><section>
+
+<h2>"Real" Demos:</h2>
+<ul>
+<li><a href="http://localhost:8888/demos/7-real-app">Real (Demo) App</a></li>
+<li><a href="http://localhost:8888/demos/8-real-app-angular">Real App Angularized</a></li>
+<li><a href="http://localhost:8888/demos/9-real-app-filtered">Real App Angular Filter</a></li>
+<li><a href="http://localhost:8888/demos/10-real-app-checkbox-filtered">Real App Angular Checkbox Filters</a></li>
+</ul>
+
+</section><section>
+
+<h2>True story!</h2>
+
+<img src="/common/images/fire.jpg" />
+
+</section><section>
+
+<pre><code data-trim contenteditable>
+var app = angular.module('BostonCFUG', []);
+app.controller('TalkCtrl', function($scope) {
+  $scope.status = 'done';
+});
+</code></pre>
+
+
+------
+
+<br />
+
+<p>Slides: <a href="https://github.com/Sharondio/talks">https://github.com/Sharondio/talks</a></p>
+<p><a href="http://twitter.com/sharondio">@sharondio</a></p>
+
+------
+
+<br />
+
+Resources:
+
+<br />
+
+<small>
+<ul>
+  <li>Docs: <a href="http://angularjs.org">AngularJS Site</a></li>
+  <li>Tutorial: <a href="http://docs.angularjs.org/tutorial">AngularJS Tutorial</a></li>
+  <li>Videos: <a href="http://egghead.io">Egghead.io</a></li>
+  <li>Videos: <a href="http://www.youtube.com/user/angularjs">AngularJS Youtube Channel</a></li>
+  <li>Blog: <a href="http://www.yearofmoo.com">Year of Moo Blog</a></li>
+</li>
+
+</section>
+
+        </div>
+
+    </div>
+
+    <script src="/common/js/reveal/lib/js/head.min.js"></script>
+    <script src="/common/js/reveal/js/reveal.min.js"></script>
+
+    <script>
+
+        // Code formatting hack courtesy of...who else?... Ray Camden
+
+        var cblocks = document.querySelectorAll("pre code");
+                    
+        if(cblocks.length) {
+            for(var i=0, len=cblocks.length; i<len; i++) {
+                var dom = cblocks[i];
+                var html = dom.innerHTML;
+                html = html.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+                dom.innerHTML = html;
+            }
+        }
+
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: '/common/js/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '/common/js/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/common/js/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/common/js/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: '/common/js/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                { src: '/common/js/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                // { src: '/js/reveal/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+                // { src: '/js/reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+            ]
+        });
+
+    </script>
+</body>
+</html>

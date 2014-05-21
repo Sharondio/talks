@@ -1,0 +1,40 @@
+<div class="header">
+  <h3 class="text-muted">Custom Filter Demo</h3>
+  <h5>Beer Categories</h5>
+  <div class="filter_controls three-col">
+    <div ng-repeat = "item in filter.list" class="filter_checkbox">
+      <input type="checkbox" ng-model="filter.check[item]"> {{item}}
+    </div>
+  </div>
+</div>
+
+<div class="row content">
+  <table class="table">
+    <thead>
+        <tr>
+            <th class="beer_name">Name
+              <a ng-click="sortBy='name'" class="glyphicon glyphicon-chevron-down"></a>
+              <a ng-click="sortBy='-name'" class="glyphicon glyphicon-chevron-up"></a></th>
+            <th class="beer_category">Category
+              <a ng-click="sortBy='category'" class="glyphicon glyphicon-chevron-down"></a>
+              <a ng-click="sortBy='-category'" class="glyphicon glyphicon-chevron-up"></a></th>
+            <th>Brewery
+              <a ng-click="sortBy='brewery.name'" class="glyphicon glyphicon-chevron-down"></a>
+              <a ng-click="sortBy='-brewery.name'" class="glyphicon glyphicon-chevron-up"></a></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="beer in beers | filter: filterByCategory | orderBy: sortBy | limitTo: 20">
+            <td>{{beer.name}}</td>
+            <td>{{beer.category}}</td>
+            <td>{{beer.brewery.name}}<br>
+              <div ng-show="beer.brewery.country = 'United States'">{{beer.brewery.city}}, {{beer.brewery.state}}</div>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  <p>NG-CONF 2014 : AngularJS Filters</p>
+</div>

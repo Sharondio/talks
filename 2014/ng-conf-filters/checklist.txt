@@ -1,0 +1,14 @@
+Item checklist:
+
+1. confirm mongo is running
+
+2. Start up Talks app:
+$ grunt connect
+
+3. Start up data app:
+/demos/data
+$ nodemon ./server.js
+
+4. Clear browser cache.
+
+5. Confirm all messaging apps are closed.

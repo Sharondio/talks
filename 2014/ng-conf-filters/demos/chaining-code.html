@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chaining Filters Code</title>
+        <link rel="stylesheet" href="/common/highlight/highlight.min.css">
+        <link rel="stylesheet" href="/common/highlight/styles/default.css">
+        <script src="/common/highlight/highlight.pack.js"></script>
+        <script src="/common/highlight/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+<body>
+<h2>Chaining Filters Code</h2>
+<pre>
+<code class="javascript">&lt;tr ng-repeat="beer in beers | limitTo : 20 | filter : filterByCategory | orderBy : sortBy "&gt;</code>
+</pre>
+<p>vs.</p>
+<pre>
+<code class="javascript">&lt;tr ng-repeat="beer in beers | filter : filterByCategory | orderBy : sortBy | limitTo : 20"&gt;</code>
+</pre>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>cf.objective - why node.js</title>
+
+    <meta name="description" content="A presentation on node.js given to cf.objective 2014">
+    <meta name="author" content="Sharon DiOrio">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="/js/reveal/css/reveal.min.css">
+    <link rel="stylesheet" href="/js/reveal/css/theme/beige.css" id="theme">
+    <link rel="stylesheet" href="custom.css" id="theme-overrides">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="/css/xcode.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write( '<link rel="stylesheet" href="/js/reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="/js/reveal/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <style type="text/css">
+    .reveal section img {
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="reveal">
+
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides" id="slides-element">
+
+<!--             <section data-markdown="adding-angular.md"
+                     data-separator="^Slide:"
+                     data-vertical="^\n\n"
+                     data-notes="^Note:">
+            </section> -->
+
+            <section>
+<h1>Node.js</h1>
+<h3>Why Would Anyone Want to Write Their Own Web Server?</h3>
+
+cf.objective(), May 2014
+
+Sharon DiOrio &bull; [@sharondio](https://twitter.com/sharondio)
+
+</section><section>
+
+<h2> My story</h2>
+<h3> ColdFusion was my life</h3>
+<img src="images/old_school.png">
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+    <script src="/js/reveal/lib/js/head.min.js"></script>
+    <script src="/js/reveal/js/reveal.min.js"></script>
+
+    <script>
+
+        // Code formatting hack courtesy of...who else?... Ray Camden
+
+        console.log("Run my init, yo!");
+
+        var cblocks = document.querySelectorAll("pre code");
+        console.log(cblocks);
+                    
+        if(cblocks.length) {
+            for(var i=0, len=cblocks.length; i<len; i++) {
+                var dom = cblocks[i];
+                var html = dom.innerHTML;
+                html = html.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+                dom.innerHTML = html;
+            }
+        }
+
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: '/js/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '/js/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/js/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/js/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: '/js/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                { src: '/js/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                // { src: '/js/reveal/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+                // { src: '/js/reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+            ]
+        });
+
+    </script>
+</body>
+</html>

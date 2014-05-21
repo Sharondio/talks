@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Checkboxes Code</title>
+        <link rel="stylesheet" href="/common/highlight/highlight.min.css">
+        <link rel="stylesheet" href="/common/highlight/styles/default.css">
+        <script src="/common/highlight/highlight.pack.js"></script>
+        <script src="/common/highlight/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+<body>
+<h2>Custom Filter Code</h2>
+<p>Filter</p>
+<pre>
+<code class="javascript">var filters = angular.module('app.filters', []);
+
+filters.filter('makeFilterItems', function() {
+
+        return function(items, filterOn, removeNulls) {
+
+            if (filterOn === false) {
+                return items;
+            }
+
+            if ((filterOn || angular.isUndefined(filterOn)) && angular.isArray(items)) {
+                var hashCheck = {}, filterItems = {}
+                filterItems.check = {}
+                filterItems.list = []
+
+                var extractValueToCompare = function(item) {
+                    if (angular.isObject(item) && angular.isString(filterOn)) {
+                        return item[filterOn];
+                    } else {
+                        return item;
+                    }
+                };
+
+                items.sort(function(a, b) {
+                    if (a[filterOn] > b[filterOn])
+                        return 1;
+                    if (a[filterOn] < b[filterOn])
+                        return -1;
+                    // a must be equal to b
+                    return 0;
+                });
+
+                angular.forEach(items, function(item) {
+                    var valueToCheck, isDuplicate = false;
+
+                    for (var i = 0; i < filterItems.list.length; i++) {
+                        if (angular.equals(extractValueToCompare(filterItems.list[i]), extractValueToCompare(item))) {
+                            isDuplicate = true;
+                            break;
+                        }
+                    }
+                    if (removeNulls) {
+                        if (item[filterOn]) {
+                            filterItems.check[item[filterOn]] = true;
+                            if (!isDuplicate) {
+                                filterItems.list.push(item[filterOn])
+                            }
+                        }
+                    } else {
+                        if (!isDuplicate) {
+                            filterItems.check[item[filterOn]] = true;
+                            filterItems.list.push(item[filterOn])
+                        }
+                    }
+
+                });
+
+                return filterItems;
+            };
+        };
+    });
+</code>
+</pre>
+
+<p>Controller</p>
+<pre>
+<code class="javascript">angular.module('myApp')
+    .controller('MainCtrl', function ($scope, $http, $filter) {
+
+        var makeFilterItems = $filter('makeFilterItems');
+
+        $http.get('http://localhost:3000/api/v1/beers').then(function(results) {
+            $scope.beers = results.data;
+
+            $scope.filter = makeFilterItems($scope.beers, "category", true);
+            console.log($scope.beers)
+
+        });
+
+        //small custom filter
+        $scope.filterByCategory = function(item) {
+            return $scope.filter.check[item.category];
+        };
+
+    });
+</code>
+</pre>
+
+</body>
+</html>

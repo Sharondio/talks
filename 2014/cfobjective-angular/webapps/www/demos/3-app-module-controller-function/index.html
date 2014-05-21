@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app='demo-app'>
+    <head>
+        <title>Adding AngularJS to Existing Apps - Basic App</title>
+
+        <!-- style counts -->
+        <link rel="stylesheet" href="/common/css/normalize.css">
+        <link rel="stylesheet" href="/common/css/main.css">
+
+        <!-- core scripts -->
+        <script src="/common/angular/angular.min.js"></script>
+
+        <script>
+            var app = angular.module('demo-app', []);
+
+            app.controller('MainCtrl', function($scope) {
+                $scope.title = 'This is cool!';
+
+                $scope.changeTitle = function(newTitle) {
+                    $scope.title = newTitle;
+                };
+            });
+        </script>
+
+    </head>
+    <body ng-controller="MainCtrl">
+        <h2 id="title">Adding AngularJS to Existing Apps - {{title}}</h2>
+        <div>
+            Title: <input ng-model="title">
+        </div>
+        <div>
+            <button ng-click="changeTitle('Tell me more!')">Tell me more!</button>
+            <button ng-click="changeTitle('OK, so what else does it do?')">OK, so what else does it do?</button>
+            <button ng-click="changeTitle('*yawns*')">*yawns*</button>
+        </div>
+    </body>
+</html>

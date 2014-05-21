@@ -1,0 +1,5 @@
+TODO
+
+- shut off all messaging apps
+- nvm use 0.10.24
+- make sure mongo is running

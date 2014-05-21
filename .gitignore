@@ -1,0 +1,10 @@
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+*.psd
+.DS_Store
+.svn
+log/*.log
+tmp/**
+node_modules/
+temp/**
+.sass-cache

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app='demo-app'>
+    <head>
+        <title>Adding AngularJS to Existing Apps - Basic App</title>
+
+        <!-- style counts -->
+        <link rel="stylesheet" href="/talks/css/normalize.css">
+        <link rel="stylesheet" href="/talks/css/main.css">
+
+        <!-- core scripts -->
+        <script src="/talks/common/angular/angular.min.js"></script>
+
+        <script>
+            var app = angular.module('demo-app', []);
+
+            app.controller('MainCtrl', function($scope) {
+                $scope.title = 'This is cool!';
+            });
+        </script>
+
+    </head>
+    <body ng-controller="MainCtrl">
+        <h2 id="title">Adding AngularJS to Existing Apps - {{title}}</h2>
+        <div>
+            Title: <input ng-model="title">
+        </div>
+    </body>
+</html>

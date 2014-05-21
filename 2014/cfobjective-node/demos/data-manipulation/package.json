@@ -1,0 +1,10 @@
+{
+  "name": "data",
+  "version": "0.0.0",
+  "dependencies": {
+    "line-by-line": "~0.1.1",
+    "csvtojson": "~0.1.5",
+    "csv": "~0.3.6",
+    "async": "~0.2.9"
+  }
+}

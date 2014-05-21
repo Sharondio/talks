@@ -1,0 +1,351 @@
+{
+    "name": "root",
+    "children": [
+        {
+            "name": "afrinic",
+            "children": [
+                {
+                    "name": "eg_8452",
+                    "children": [
+                        {
+                            "name": "Vitalwerks Internet Solutions LLC DBA No-IP R515-LRMS",
+                            "children": [
+                                {
+                                    "name": "nf1.no-ip.com",
+                                    "children": [
+                                        {
+                                            "name": "eslamjetto.no-ip.info",
+                                            "size": 10
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "tn_2609",
+                    "children": [
+                        {
+                            "name": "eNom Inc. R39-LROR",
+                            "children": [
+                                {
+                                    "name": "ns.tunet.tn",
+                                    "children": [
+                                        {
+                                            "name": "www.lhbsud.org",
+                                            "size": 20
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "za_12258",
+                    "children": [
+                        {
+                            "name": "UniForum Association",
+                            "children": [
+                                {
+                                    "name": "ns1.mweb.co.za",
+                                    "children": [
+                                        {
+                                            "name": "mweb.co.za",
+                                            "size": 10
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "za_37153",
+                    "children": [
+                        {
+                            "name": "UniForum Association",
+                            "children": [
+                                {
+                                    "name": "ns1.tld-ns.net",
+                                    "children": [
+                                        {
+                                            "name": "fruitspot.co.za",
+                                            "size": 100
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "apnic",
+            "children": [
+                {
+                    "name": "au_9290",
+                    "children": [
+                        {
+                            "name": "DOMAIN CENTRAL AUSTRALIA PTY LTD.",
+                            "children": [
+                                {
+                                    "name": "ns1.mydyndns.org",
+                                    "children": [
+                                        {
+                                            "name": "thesergery.com",
+                                            "size": 80
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "au_13335",
+                    "children": [
+                        {
+                            "name": "ENOM INC.",
+                            "children": [
+                                {
+                                    "name": "noah.ns.cloudflare.com",
+                                    "children": [
+                                        {
+                                            "name": "i.imgur.com",
+                                            "size": 30
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "bn_55303",
+                    "children": [
+                        {
+                            "name": "GODADDY.COM LLC",
+                            "children": [
+                                {
+                                    "name": "ns51.bobifa.com",
+                                    "children": [
+                                        {
+                                            "name": "bobifa.com",
+                                            "size": 690
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "cn_4134",
+                    "children": [
+                        {
+                            "name": "35 TECHNOLOGY CO. LTD",
+                            "children": [
+                                {
+                                    "name": "ns1.5173.com",
+                                    "children": [
+                                        {
+                                            "name": "trading.5173.com",
+                                            "size": 10
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "ns1.dns-diy.com",
+                                    "children": [
+                                        {
+                                            "name": "image.tupian.com",
+                                            "size": 10
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "ns1.duowanns.com",
+                                    "children": [
+                                        {
+                                            "name": "ylog.hiido.com",
+                                            "size": 40
+                                        },
+                                        {
+                                            "name": "navbar.duowan.com",
+                                            "size": 20
+                                        },
+                                        {
+                                            "name": "wowbox.duowan.com",
+                                            "size": 10
+                                        },
+                                        {
+                                            "name": "wen.duowan.com",
+                                            "size": 60
+                                        },
+                                        {
+                                            "name": "pai.duowan.com",
+                                            "size": 20
+                                        },
+                                        {
+                                            "name": "bbs.duowan.com",
+                                            "size": 10
+                                        },
+                                        {
+                                            "name": "kf.duowan.com",
+                                            "size": 80
+                                        },
+                                        {
+                                            "name": "fb.duowan.com",
+                                            "size": 70
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Australia eName Pty Ltd.",
+                            "children": [
+                                {
+                                    "name": "ns1.dnsv2.com",
+                                    "children": [
+                                        {
+                                            "name": "bofangqi.6gg.cn",
+                                            "size": 20
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "BEIJING INNOVATIVE LINKAGE TECHNOLOGY LTD. DBA DNS.COM.CN",
+                            "children": [
+                                {
+                                    "name": "ns1.dns120.net",
+                                    "children": [
+                                        {
+                                            "name": "img.kaixin200.com",
+                                            "size": 30
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "ns1.dnsv5.com",
+                                    "children": [
+                                        {
+                                            "name": "upa.wblove.com",
+                                            "size": 10
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "ns13.dns.com.cn",
+                                    "children": [
+                                        {
+                                            "name": "www.seo60.com",
+                                            "size": 10
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "BIZCN.COM INC.",
+                            "children": [
+                                {
+                                    "name": "dns.bizcn.com",
+                                    "children": [
+                                        {
+                                            "name": "xinzestone.com",
+                                            "size": 10
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "dns1.kabasiji.com",
+                                    "children": [
+                                        {
+                                            "name": "download.shanhu99.com",
+                                            "size": 10
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "ns.cdnhost.cn",
+                                    "children": [
+                                        {
+                                            "name": "www.338mu.com",
+                                            "size": 30
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "CHENGDU FLY-DIGITAL TECHNOLOGY CO. LTD",
+                            "size": 100,
+                            "children": [
+                                {
+                                    "name": "ns11.bigwww.com",
+                                    "children": [
+                                        {
+                                            "name": "www.okeyme.com",
+                                            "size": 40
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "CentralNic Ltd",
+                            "size": 50,
+                            "children": [
+                                {
+                                    "name": "ns2.dnsv2.com",
+                                    "children": [
+                                        {
+                                            "name": "img.users.51.la",
+                                            "size": 10
+                                        },
+                                        {
+                                            "name": "js.users.51.la",
+                                            "size": 40
+                                        },
+                                        {
+                                            "name": "vipimg.51.la",
+                                            "size": 20
+                                        },
+                                        {
+                                            "name": "vip.51.la",
+                                            "size": 60
+                                        },
+                                        {
+                                            "name": "web2.51.la",
+                                            "size": 60
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "DOMAIN.COM LLC",
+                            "children": [
+                                {
+                                    "name": "f1g1ns1.dnspod.net",
+                                    "children": [
+                                        {
+                                            "name": "www.hbjyqy.com",
+                                            "size": 8380
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

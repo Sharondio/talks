@@ -1,0 +1,31 @@
+{
+  "name": "demos",
+  "version": "0.0.0",
+  "dependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-connect": "~0.6.0",
+    "highlight.js": "~7.5.0",
+    "mongoose": "~3.8.4",
+    "express-restify-mongoose": "~0.6.2",
+    "express": "~3.4.7"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-uglify": "~0.2.7",
+    "karma-browserify": "~0.0.9",
+    "karma-chrome-launcher": "~0.1.0",
+    "karma-jasmine": "~0.1.0",
+    "karma-spec-reporter": "0.0.3",
+    "karma-coverage": "~0.1.0",
+    "karma-phantomjs-launcher": "~0.1.0",
+    "karma": "~0.10.1",
+    "istanbul": "~0.1.45",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-browserify": "~1.2.11",
+    "grunt-contrib-jade": "~0.8.0",
+    "grunt-contrib-stylus": "~0.10.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-karma": "~0.6.2",
+    "grunt-contrib-jasmine": "~0.5.2"
+  }
+}

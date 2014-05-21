@@ -1,0 +1,9 @@
+<div>status: {{status}}
+    <form name="filterForm" ng-submit="filterItems(filterOn)">
+        <div class="pull-right">
+            filter on: <input ng-model="filterOn">
+        </div>
+        <input type="submit" name="submit" class="hidden" value="hidden submit">
+    </form>
+</div>
+<sunburst items = "filteredObject"></sunburst>

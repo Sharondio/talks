@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Adding AngularJS to Existing Apps - With Data</title>
+
+        <!-- style counts -->
+        <link rel="stylesheet" href="/common/css/normalize.css">
+        <link rel="stylesheet" href="/common/css/main.css">
+
+        <!-- core scripts -->
+        <script src="/common/angular/angular.min.js"></script>
+
+        <!-- app scripts -->
+        <script>
+            'use strict';
+
+            //App module.
+            var app = angular.module('with-data', []);
+
+            app.controller('MainCtrl', function($scope, $http) {
+
+              $scope.title = "With Data";
+
+              $scope.gimme = function() {
+                $http.get('../static_data/beers.json').then(function(results) {
+                    $scope.beers = results.data;
+                    console.log($scope.beers);
+                  });              
+              };
+
+            });
+        </script>
+
+    </head>
+    <body ng-app="with-data" ng-controller="MainCtrl">
+        <h2 id="title">Adding AngularJS to Existing Apps - {{title}}</h2>
+        <button ng-click="gimme()">Gimme beers</button>
+        <div>
+            <ul>
+                <li ng-repeat="beer in beers | limitTo: 25">{{beer.NAME}}</li>
+            </ul>
+        </div>
+    </body>
+</html>

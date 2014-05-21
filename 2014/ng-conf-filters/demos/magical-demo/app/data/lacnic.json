@@ -1,0 +1,387 @@
+{
+    "name": "lacnic",
+    "children": [
+        {
+            "name": "br_7162",
+            "children": [
+                {
+                    "name": "UNIVERSO ONLINE SA UOL",
+                    "children": [
+                        {
+                            "name": "ns1.dominios.uol.com.br",
+                            "children": [
+                                {
+                                    "name": "ns1.dominios.uol.com.br",
+                                    "children": [
+                                        {
+                                            "name": "www.stufagrill.com",
+                                            "size": 10
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "br_8167",
+            "children": [
+                {
+                    "name": "NETEARTH ONE INC. DBA NETEARTH",
+                    "children": [
+                        {
+                            "name": "ns1.servidorturbo.com",
+                            "children": [
+                                {
+                                    "name": "ns1.servidorturbo.com",
+                                    "children": [
+                                        {
+                                            "name": "A - Filial Distrito Federal",
+                                            "size": 40
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "br_27715",
+            "children": [
+                {
+                    "name": "BR-NIC",
+                    "children": [
+                        {
+                            "name": "ns1.locaweb.com.br",
+                            "children": [
+                                {
+                                    "name": "ns1.locaweb.com.br",
+                                    "children": [
+                                        {
+                                            "name": "A",
+                                            "size": 10
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "LOCAWEB SERVICOS DE INTERNET SA DBA LOCAWEB",
+                    "children": [
+                        {
+                            "name": "ns1.locaweb.com.br",
+                            "children": [
+                                {
+                                    "name": "ns1.locaweb.com.br",
+                                    "children": [
+                                        {
+                                            "name": "A",
+                                            "size": 10
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "br_28299",
+            "children": [
+                {
+                    "name": "ENOM INC.",
+                    "children": [
+                        {
+                            "name": "dns1.kinghost.com.br",
+                            "children": [
+                                {
+                                    "name": "dns1.kinghost.com.br",
+                                    "children": [
+                                        {
+                                            "name": "moveisterrra.com",
+                                            "size": 10
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "bz_47478",
+            "children": [
+                {
+                    "name": "RUCENTER-REG-RIPN",
+                    "children": [
+                        {
+                            "name": "ns1.hostline.ru",
+                            "children": [
+                                {
+                                    "name": "ns1.hostline.ru",
+                                    "children": [
+                                        {
+                                            "name": "fastdl.step-one.ru",
+                                            "size": 10
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "bz_262254",
+            "children": [
+                {
+                    "name": "RUCENTER-REG-RIPN",
+                    "children": [
+                        {
+                            "name": "ns3-l2.nic.ru",
+                            "children": [
+                                {
+                                    "name": "ns3-l2.nic.ru",
+                                    "children": [
+                                        {
+                                            "name": "mastergrp-spb.ru",
+                                            "size": 40
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "co_18747",
+            "children": [
+                {
+                    "name": "NETWORK SOLUTIONS LLC.",
+                    "children": [
+                        {
+                            "name": "dns1.baehost.com.ar",
+                            "children": [
+                                {
+                                    "name": "dns1.baehost.com.ar",
+                                    "children": [
+                                        {
+                                            "name": "conextube.com",
+                                            "size": 10
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "cr_13335",
+            "children": [
+                {
+                    "name": "GODADDY.COM LLC",
+                    "children": [
+                        {
+                            "name": "iris.ns.cloudflare.com",
+                            "children": [
+                                {
+                                    "name": "iris.ns.cloudflare.com",
+                                    "children": [
+                                        {
+                                            "name": "neurotoxininstitute.com",
+                                            "size": 20
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "NAMEKING.COM INC.",
+                    "children": [
+                        {
+                            "name": "ns1.dszone.net",
+                            "children": [
+                                {
+                                    "name": "ns1.dszone.net",
+                                    "children": [
+                                        {
+                                            "name": "ajakemegood24.com",
+                                            "size": 30
+                                        },
+                                        {
+                                            "name": "chronosponosos.com",
+                                            "size": 10
+                                        },
+                                        {
+                                            "name": "evpcocoa.com",
+                                            "size": 10
+                                        },
+                                        {
+                                            "name": "www.52CPS.COM",
+                                            "size": 190
+                                        },
+                                        {
+                                            "name": "www.52cps.com",
+                                            "size": 220
+                                        },
+                                        {
+                                            "name": "zonedg.com",
+                                            "size": 50
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "NETWORK SOLUTIONS LLC.",
+                    "children": [
+                        {
+                            "name": "art.ns.cloudflare.com",
+                            "children": [
+                                {
+                                    "name": "art.ns.cloudflare.com",
+                                    "children": [
+                                        {
+                                            "name": "metallica.com",
+                                            "size": 20
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "dns2.cloudflare.com",
+                            "children": [
+                                {
+                                    "name": "dns2.cloudflare.com",
+                                    "children": [
+                                        {
+                                            "name": "ajax.cloudflare.com",
+                                            "size": 170
+                                        },
+                                        {
+                                            "name": "cdnjs.cloudflare.com",
+                                            "size": 10
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "REGISTER.COM INC.",
+                    "children": [
+                        {
+                            "name": "coco.ns.cloudflare.com",
+                            "children": [
+                                {
+                                    "name": "coco.ns.cloudflare.com",
+                                    "children": [
+                                        {
+                                            "name": "bigjohnsbeefjerky.com",
+                                            "size": 50
+                                        },
+                                        {
+                                            "name": "www.bigjohnsbeefjerky.com",
+                                            "size": 50
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "mx_7399",
+            "children": [
+                {
+                    "name": "Akky Una division de NIC Mexico",
+                    "children": [
+                        {
+                            "name": "dns.cancun.com.mx",
+                            "children": [
+                                {
+                                    "name": "dns.cancun.com.mx",
+                                    "children": [
+                                        {
+                                            "name": "cancun.com.mx",
+                                            "size": 20
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "mx_19373",
+            "children": [
+                {
+                    "name": "TUCOWS DOMAINS INC.",
+                    "children": [
+                        {
+                            "name": "dns1.triara.com",
+                            "children": [
+                                {
+                                    "name": "dns1.triara.com",
+                                    "children": [
+                                        {
+                                            "name": "centraldelaptops.com",
+                                            "size": 300
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ve_8048",
+            "children": [
+                {
+                    "name": "TUCOWS DOMAINS INC.",
+                    "children": [
+                        {
+                            "name": "dns1.cantv.net",
+                            "children": [
+                                {
+                                    "name": "dns1.cantv.net",
+                                    "children": [
+                                        {
+                                            "name": "cantv.net",
+                                            "size": 10
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

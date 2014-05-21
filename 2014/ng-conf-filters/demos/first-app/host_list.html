@@ -1,0 +1,38 @@
+<div class="controlbar">
+    <h3 class="title">Hosts List</h3>
+</div>
+
+<div class="scrollable" ng-controller="MainCtrl">
+    <div class="edit_controls pull-right">
+      Filter by: <input ng-model="query">
+    </div>
+    <table class="table table-bordered table-condensed table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Title 
+                    <a ng-click="orderProp = 'title'" class="icon-chevron-down"></a>
+                    <a ng-click="orderProp = '-title'" class="icon-chevron-up"></a></th>
+                <th>Environment
+                    <a ng-click="setOrder('environment.title')" class="icon-chevron-down"></a>
+                    <a ng-click="setOrder('-environment.title')" class="icon-chevron-up"></a></th>
+                <th>Hostname External
+                    <a ng-click="setOrder('environment.hostname_external')" class="icon-chevron-down"></a>
+                    <a ng-click="setOrder('-environment.hostname_external')" class="icon-chevron-up"></a></th>
+                <th>Hostname Internal
+                    <a ng-click="setOrder('environment.hostname_internal')" class="icon-chevron-down"></a>
+                    <a ng-click="setOrder('-environment.hostname_internal')" class="icon-chevron-up"></a></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="list" ng-repeat="host in hosts | filter: query | orderBy:orderProp">
+                <td ng-click="getHost(host.id)">{{host.title}}</td>
+                <td>{{host.environment.title}}</td>
+                <td>{{host.environment.hostname_external}}</td>
+                <td>{{host.environment.hostname_internal}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+</div>

@@ -1,0 +1,10 @@
+{
+  "name": "nodedump-demo",
+  "description": "A demo application for nodedump npm",
+  "author": "Sharon DiOrio <sharondio@gmail.com>",
+  "dependencies": {
+    "nodedump": "0.0.35"
+  },
+  "devDependencies": {},
+  "engine": "node >= 0.10.22"
+}

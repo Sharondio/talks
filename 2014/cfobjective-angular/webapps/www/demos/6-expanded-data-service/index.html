@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Adding AngularJS to Existing Apps - Expanded Data Service</title>
+
+        <!-- style counts -->
+        <link rel="stylesheet" href="/common/css/normalize.css">
+        <link rel="stylesheet" href="/common/css/main.css">
+
+        <!-- core scripts -->
+        <script src="/common/angular/angular.min.js"></script>
+
+        <!-- app scripts -->
+        <script>
+            'use strict';
+
+            //App module.
+            var app = angular.module('expanded-data-service', []);
+
+            //Controller
+            app.controller('MainCtrl', function($scope, BeerSvc) {
+
+                $scope.title = "Expanded Data Service";
+
+                $scope.gimme = function() {
+                    BeerSvc.getBeers().then(function(results) {
+                        $scope.beers = results;
+                        $scope.title = "I got beers!";
+                        console.log($scope.beers);
+                    });              
+                };
+
+                BeerSvc.getBeerCount().then(function(results) {
+                    $scope.beerCount = results;
+                });
+
+            });
+
+            //Service 
+            app.service('BeerSvc', function($http) {
+
+                this.getBeers = function() {
+                    return $http.get('http://localhost:8888/beers/data_json.cfc?method=getBeers').then(function(results) {
+                        console.log("results: ", results)
+                        return results.data;
+                    });
+                };
+
+                this.getBeerCount = function() {
+                    return $http.get('http://localhost:8888/beers/data_json.cfc?method=getBeerCount').then(function(results) {
+                        return results.data;
+                    });
+                };
+
+            });
+
+        </script>
+
+    </head>
+    <body ng-app="expanded-data-service" ng-controller="MainCtrl">
+        <h2 id="title">Adding AngularJS to Existing Apps - {{title}}</h2>
+        <p>There are {{beerCount}} beers!</p>
+        <button ng-click="gimme()">Gimme beers</button>
+        <div>
+            <ul>
+                <li ng-repeat="beer in beers | limitTo: 25">{{beer.NAME}}</li>
+            </ul>
+        </div>
+    </body>
+</html>

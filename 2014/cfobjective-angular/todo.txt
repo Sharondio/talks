@@ -1,0 +1,7 @@
+1. Confirm Railo started
+> cd /Users/sharon/Documents/projects/talks/2014/boston-cfug-adding-angular/
+> ./start
+2. Confirm MySQL started
+> sudo mysqld_safe
+3. Confirm beers works:
+http://localhost:8888/beers/

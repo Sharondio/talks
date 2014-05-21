@@ -1,0 +1,20 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Sharon DiOrio -- Author -- @sharondio
+
+# THANKS
+
+    K.Adam White, for giving a knowledgable, concise presentation, and for open-sourcing his presentations.
+    Hakim El Hattab, for Reveal.js
+    Greg Smith, for slide.js
+
+# TECHNOLOGY COLOPHON
+
+    HTML5 Boilerplate
+    Normalize.css
+    jQuery
+    Reveal.js -- https://github.com/hakimel/reveal.js
+    Slide -- https://github.com/incompl/slide

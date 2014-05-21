@@ -1,0 +1,11 @@
+{
+  "name": "arduino-twitter-bot",
+  "description": "A demo application for javascript on arduino",
+  "author": "Sharon DiOrio <sharondio@gmail.com>",
+  "dependencies": {
+    "johnny-five": "~0.7.31",
+    "twit": "~1.1.14"
+  },
+  "devDependencies": {},
+  "engine": "node >= 0.10.22"
+}

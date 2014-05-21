@@ -1,0 +1,11 @@
+{
+  "name": "say-demo",
+  "version": "0.0.0",
+  "description": "A demo for using npm say",
+  "main": "index.js",
+  "private": true,
+  "author": "Sharon DiOrio (sharondio@gmail.com)",
+  "dependencies": {
+    "say": "~0.5.0"
+  }
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Adding AngularJS to Existing Apps - Demo 1</title>
+
+        <!-- style counts -->
+        <link rel="stylesheet" href="/talks/css/normalize.css">
+        <link rel="stylesheet" href="/talks/css/main.css">
+
+        <!-- core scripts -->
+        <script src="/talks/common/angular/angular.min.js"></script>
+
+        <!-- app scripts -->
+        <script>
+            'use strict';
+
+            //App module.
+            var app = angular.module('basic-app-with-data', []);
+
+            app.controller('MainCtrl', function($scope) {
+
+              $scope.title = "Demo With Data";
+
+            });
+        </script>
+
+    </head>
+    <body ng-app="basic-app-with-data" ng-controller="MainCtrl">
+        <h2 id="title">Adding AngularJS to Existing Apps - {{title}}</h2>
+        <div></div>
+    </body>
+</html>

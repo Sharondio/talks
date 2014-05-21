@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+<title>NG-CONF: AngularJS Filters</title>
+
+<meta name="description" content="A presentation on Angular Filters given at ng-conf, January 2014">
+<meta name="author" content="Sharon DiOrio">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="/js/reveal/css/reveal.min.css">
+<link rel="stylesheet" href="/js/reveal/css/theme/beige.css" id="theme">
+<link rel="stylesheet" href="custom.css" id="theme-overrides">
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="/css/xcode.css">
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+document.write( '<link rel="stylesheet" href="/js/reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="/js/reveal/lib/js/html5shiv.js"></script>
+<![endif]-->
+<style type="text/css">
+.reveal section img {
+background: transparent;
+border: 0;
+box-shadow: none;
+}
+</style>
+
+<!-- angular stuff for embedded code -->
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+
+</head>
+
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Angular Filters</h1>
+                    <h2>Beyond OrderBy and LimitTo</h2>
+                    <h3>Ng-Conf January 2013</h3>
+
+                    Sharon DiOrio &bull; [@sharondio]
+
+                    <aside class="notes">
+                        Euro-Pro, we make the Shark and Ninja kitchen products. 
+                        Internal Applications, business intelligence and analytics - don't blame me
+                        Chief Instigator - AngularJS Boston Meetup
+                        Groupie of the boy band known as Misko and Company
+                    </aside>
+
+                </section>
+
+                <section>
+                    <h2>Every presentation has a story*</h2>
+
+                    <p>* It's a rule. I read it in a book somewhere</p>
+
+                    <aside class="notes">
+                        Technical Evaluation.
+                        Mention Ember.
+                        2 hours of coding in Angular, and I produced this.
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>The landscope in 2011 was very different</h2>
+
+                    <img src="images/chart_2011.png">
+
+                </section>
+
+                <section>
+                    <h2>The Code I wrote in 2 hours</h2>
+
+<pre><code data-trim contenteditable><div ng-controller="MainCtrl">
+    Filter by: <input ng-model="query">
+    <table>
+    <thead><tr>
+        <th>
+        Title 
+        <a ng-click="orderProp = 'title'" class="icon-chevron-down"></a>
+        <a ng-click="orderProp = '-title'" class="icon-chevron-up"></a>
+        </th>
+    </tr></thead>
+    <tbody><tr ng-repeat="host in hosts | filter: query | orderBy:orderProp">
+        <td ng-click="getHost(host.id)">{{host.title}}</td>
+        <td>{{host.environment.title}}</td>
+    </tr></tbody>
+</table>
+</div></code></pre>
+
+                <aside class="notes">
+                    To us veterans, it doesn't look like much...but when it produced this...
+                </aside>
+
+                </section>
+
+                <section>
+
+                    <h2>My first app</h2>
+
+                    <iframe class="stretch" style="border: 0;" src="demos/first-app/">
+                    </iframe>
+
+                    <a class="demo" href="demos/first-app/">click-me</a>
+
+                </section>
+
+                <section>
+                    <img src="images/fire.jpg" />
+
+                    <aside class="notes">
+                        As an aside, most people choose technology...
+                        I choose technology...
+                        And angular filters made me look like a genius.
+                        It seemed like magic.
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Landscape today</h2>
+
+                    <img src="images/chart.png">
+
+                </section>
+
+                <section>
+                    <h2>I was sure it was magic</h2>
+
+                    <img src="images/xkcd_not_magic.png" />
+
+                    <p>http://xkcd.com/373/</p>
+
+                    <aside class="notes">
+                        - Serious lack of Angular comics
+                        - We'll know we've really made it when they make fun of us
+                    </aside>
+
+                </section>
+                
+                <section>
+                    <h2>I won't be covering:</h2>
+
+                    <ul>
+                        <li>currency</li>
+                        <li>date</li>
+                        <li>json</li>
+                        <li>limitTo</li>
+                        <li>lowercase/uppercase</li>
+                        <li>number</li>
+                        <li>orderBy</li>
+                    </ul>
+
+                    <p class="fragment fade-in" style="margin-top: 20px;">Go read the docs.</p>
+
+                </section>
+
+                <section>
+
+                    <h3>Custom String Filter</h3>
+
+<pre><code data-trim contenteditable>angular.module('phonecatFilters', [])
+  .filter('checkmark', function() {
+    return function(input) {
+      return input ? '\u2713' : '\u2718';
+    };
+  });
+</code></pre>
+                    <aside class="notes">
+                        It's probably pretty basic, but it's worth mentioning, IRC/StackOverflow...
+                    </aside>
+
+                </section>
+
+                <section>
+                    <h2>Filter: Filter</h2>
+
+                    <iframe class="stretch" style="border: 0;" src="demos/filter-filter/app/">
+                    </iframe>
+
+                    <a class="demo" href="demos/filter-filter/app/">click-me</a>
+                    <a class="demo" href="demos/filter-filter/code.html">code me</a>
+                    
+                    <aside class="notes">
+                        - Same as my app
+                        - A filter: filter (nice work naming that one guys) for Each
+                    </aside>
+                
+                </section>
+
+                <section>
+                    <h2>Custom Array Filter</h2>
+
+                    <iframe class="stretch" style="border: 0;" src="demos/custom-filter/app/">
+                    </iframe>
+
+                    <a class="demo" href="demos/custom-filter/app/">click-me</a>
+                    <a class="demo" href="demos/custom-filter/code.html">code-me</a>
+
+                    <aside class="notes">
+                        - Where I see the most potential (get a little excited, mention demo at the end)
+                        - Data transforms, pull them out of the service and controller
+                        - Repurpose data you've already retrieved
+                    </aside>
+                    
+                </section>
+
+                <section>
+                    <h2>Requisite Testing Slide Goes Here</h2>
+
+                    <!-- code sample here -->
+<pre>
+<code data-trim contenteditable>describe('filter', function() {
+ 
+  beforeEach(module('phonecatFilters'));
+ 
+  describe('checkmark', function() {
+ 
+    it('should convert boolean values to unicode checkmark or cross',
+        inject(function(checkmarkFilter) {
+      expect(checkmarkFilter(true)).toBe('\u2713');
+      expect(checkmarkFilter(false)).toBe('\u2718');
+    }));
+  });
+});</code></pre>
+
+                    <p class="fragment fade-in">(Seriously. Just do it.)</p>
+
+                    <aside class="notes">
+                        - Filters have to be the easiest thing in Angular to test. 
+                        - Literally, expect(myFilter(garbage.in)).toBe(garbage.out)
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Chaining Filters</h2>
+
+                    <!-- code sample here -->
+<div class="fragment fade-in">
+<pre><code data-trim>&lt;tr ng-repeat="beer in beers | limitTo : 20 | filter : filterByCategory | orderBy : sortBy "&gt;</code></pre>
+</div>
+<div class="fragment fade-in">
+<p>vs.</p>
+<pre><code data-trim contenteditable>&lt;tr ng-repeat="beer in beers | filter : filterByCategory | orderBy : sortBy | limitTo : 20"&gt;</code></pre>
+</div>
+                <a class="demo" href="demos/chaining-code.html">code-me</a>
+                
+                    <aside class="notes">
+                        - Most useful feature of filters, just a pipe!
+                        - Order matters
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Performance of Filters</h2>
+
+                    <iframe style="height: 530px; width: 100%; border: 0;" src="demos/performance/app/">
+                    </iframe>
+                
+                    <a class="demo" href="demos/performance/app/">click-me</a>
+                    
+                    <aside class="notes">
+                        - Status is just measuring when the data is returned.
+                        - First question people ask
+                        - Here's an answer
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Don't Use Filters When...</h2>
+
+                    <ul>
+                        <li class="fragment fade-in">Doing DOM Manipulation</li>
+                        <li class="fragment fade-in">Accessing data</li>
+                        <li class="fragment fade-in">Querying your data service is faster</li>
+                        <li class="fragment fade-in">You're using unstable functions</li>
+                        <li class="fragment fade-in">Restricting access to information</li>
+                    </ul>
+
+                    <aside class="notes">
+                        - Use Directives!
+                        - Use Services!
+                        - (It could happen)
+                        - Not really the purpose of filters + untestable
+                        - It's not really secure
+                    </aside>
+                
+                </section>
+
+                <section>
+                    <h2>Filters can still be Magical</h2>
+
+                    <iframe style="height: 530px; width: 80%; border: 0;" src="demos/magical-demo/app/">
+                    </iframe>
+
+                    <a class="demo" href="demos/first-app/">click-me</a>
+
+                    <aside class="notes">
+                        - Same 300k+ recordset
+                        - Again, status is just measuring when the data is returned.
+                        - Filtering object data into hierarchy
+                        - Directive updates the chart based on the filter
+                        - queries Tucow, lycos, google, akamai
+                    </aside>
+                
+                </section>
+
+                <section>
+                    <h2>Thank you!</h2>
+
+                    <p>https://github.com/Sharondio/talks/</p>
+
+                </section>
+
+            </div>
+        </div>
+
+    </body>
+
+    <script src="/js/reveal/lib/js/head.min.js"></script>
+    <script src="/js/reveal/js/reveal.min.js"></script>
+
+    <script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+    transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+    // Optional libraries used to extend on reveal.js
+    dependencies: [
+    { src: '/js/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '/js/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '/js/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '/js/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: '/js/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '/js/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: '/js/reveal/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: '/js/reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+    ]
+    });
+
+    </script>
+
+</html>

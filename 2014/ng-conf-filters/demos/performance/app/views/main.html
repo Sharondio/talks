@@ -1,0 +1,42 @@
+<div class="header">
+  <h3 class="text-muted">Performance Demo</h3>
+  <h5>DNS of Malware Spam</h5>
+</div>
+<div class="row content">
+  <div class="pull-left">
+    <form name="countForm" ng-submit="setCount()">
+    Count: <input ng-model="count" style="width:  60px;"> items being filtered <a href="javascript:" class="glyphicon glyphicon-search" ng-click="setCount()"></a>
+      <p>Status: {{status}}</p>
+      <input type="submit" name="submit" class="hidden">
+    </form>
+  </div>
+</div>
+<div class="row content">
+  <div class="filter_controls cols">
+    <div ng-repeat = "item in filter.list" class="filter_checkbox">
+      <input type="checkbox" ng-model="filter.check[item]"> {{item}}
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+        <tr>
+            <th class="dns_registrar">Registrar
+              <a ng-click="sortBy='registrar'" class="glyphicon glyphicon-chevron-down"></a>
+              <a ng-click="sortBy='-registrar'" class="glyphicon glyphicon-chevron-up"></a></th>
+            <th class="dns_country">Country
+              <a ng-click="sortBy='country_code'" class="glyphicon glyphicon-chevron-down"></a>
+              <a ng-click="sortBy='-country_code'" class="glyphicon glyphicon-chevron-up"></a></th>
+            <th class="dns_url">Domain name
+              <a ng-click="sortBy='host_name'" class="glyphicon glyphicon-chevron-down"></a>
+              <a ng-click="sortBy='-host_name'" class="glyphicon glyphicon-chevron-up"></a></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in items | filter: filterByCountry | orderBy: sortBy | limitTo: 20">
+            <td>{{item.registrar}}</td>
+            <td>{{item.country_code}}</td>
+            <td>{{item.host_name}}</td>
+        </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd $(dirname $0)
+java -DSTOP.PORT=8887 -DSTOP.KEY=railo -jar start.jar --stop

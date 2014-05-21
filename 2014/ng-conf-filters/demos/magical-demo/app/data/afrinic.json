@@ -1,0 +1,101 @@
+{
+    "name": "afrinic",
+    "children": [
+        {
+            "name": "eg_8452",
+            "children": [
+                {
+                    "name": "Vitalwerks Internet Solutions LLC DBA No-IP R515-LRMS",
+                    "children": [
+                        {
+                            "name": "nf1.no-ip.com",
+                            "children": [
+                                {
+                                    "name": "nf1.no-ip.com",
+                                    "children": [
+                                        {
+                                            "name": "eslamjetto.no-ip.info",
+                                            "size": 10
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "tn_2609",
+            "children": [
+                {
+                    "name": "eNom Inc. R39-LROR",
+                    "children": [
+                        {
+                            "name": "ns.tunet.tn",
+                            "children": [
+                                {
+                                    "name": "ns.tunet.tn",
+                                    "children": [
+                                        {
+                                            "name": "www.lhbsud.org",
+                                            "size": 20
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "za_12258",
+            "children": [
+                {
+                    "name": "UniForum Association",
+                    "children": [
+                        {
+                            "name": "ns1.mweb.co.za",
+                            "children": [
+                                {
+                                    "name": "ns1.mweb.co.za",
+                                    "children": [
+                                        {
+                                            "name": "mweb.co.za",
+                                            "size": 10
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "za_37153",
+            "children": [
+                {
+                    "name": "UniForum Association",
+                    "children": [
+                        {
+                            "name": "ns1.tld-ns.net",
+                            "children": [
+                                {
+                                    "name": "ns1.tld-ns.net",
+                                    "children": [
+                                        {
+                                            "name": "fruitspot.co.za",
+                                            "size": 100
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

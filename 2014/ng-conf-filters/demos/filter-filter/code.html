@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Checkboxes Code</title>
+        <link rel="stylesheet" href="/common/highlight/highlight.min.css">
+        <link rel="stylesheet" href="/common/highlight/styles/default.css">
+
+    </head>
+<body>
+<h2>Filter by Checkboxes Code</h2>
+<p>Controller</p>
+<pre>
+<code class="javascript">'use strict';
+
+angular.module('myApp')
+    .controller('MainCtrl', function ($scope, $http) {
+
+        $http.get('http://localhost:3000/api/v1/beers').then(function(results) {
+            $scope.beers = results.data;
+        });
+
+    });
+</code>
+</pre>
+
+<p>View</p>
+<pre>
+<code class="javascript">&lt;div class=&quot;header&quot;&gt; 
+    &lt;h3 class=&quot;text-muted&quot;&gt;Filter: Filter Demo&lt;/h3&gt; 
+    &lt;h5&gt;Beer Categories&lt;/h5&gt; 
+    &lt;div class=&quot;filter_controls three-col&quot;&gt; 
+        Filter by: &amp;lt;input ng-model=&quot;query&quot; /&amp;gt; 
+    &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;row content&quot;&gt; 
+    &lt;table class=&quot;table&quot;&gt; 
+        &lt;thead&gt; &lt;tr&gt; 
+            &lt;th class=&quot;beer_name&quot;&gt;Name 
+                &lt;a ng-click=&quot;sortBy='name'&quot; class=&quot;glyphicon glyphicon-chevron-down&quot;&gt;&lt;/a&gt; 
+                &lt;a ng-click=&quot;sortBy='-name'&quot; class=&quot;glyphicon glyphicon-chevron-up&quot;&gt;&lt;/a&gt;&lt;/th&gt; 
+            &lt;th class=&quot;beer_category&quot;&gt;Category 
+                &lt;a ng-click=&quot;sortBy='category'&quot; class=&quot;glyphicon glyphicon-chevron-down&quot;&gt;&lt;/a&gt; 
+                &lt;a ng-click=&quot;sortBy='-category'&quot; class=&quot;glyphicon glyphicon-chevron-up&quot;&gt;&lt;/a&gt;&lt;/th&gt; 
+            &lt;th&gt;Brewery 
+                &lt;a ng-click=&quot;sortBy='brewery.name'&quot; class=&quot;glyphicon glyphicon-chevron-down&quot;&gt;&lt;/a&gt; 
+                &lt;a ng-click=&quot;sortBy='-brewery.name'&quot; class=&quot;glyphicon glyphicon-chevron-up&quot;&gt;&lt;/a&gt;&lt;/th&gt;
+        &lt;/tr&gt; &lt;/thead&gt; 
+        &lt;tbody&gt; &lt;tr ng-repeat=&quot;beer in beers | filter: query | orderBy: sortBy | limitTo: 20&quot;&gt; 
+            &lt;td&gt;{{beer.name}}&lt;/td&gt; 
+            &lt;td&gt;{{beer.category}}&lt;/td&gt; 
+            &lt;td&gt;{{beer.brewery.name}}&lt;br&gt; 
+                &lt;div ng-show=&quot;beer.brewery.country = 'United States'&quot;&gt;
+                    {{beer.brewery.city}}, {{beer.brewery.state}}
+                &lt;/div&gt; &lt;/td&gt; 
+        &lt;/tr&gt; &lt;/tbody&gt; 
+    &lt;/table&gt; 
+&lt;/div&gt;</code></pre>
+
+        <script src="/common/highlight/highlight.pack.js"></script>
+        <script src="/common/highlight/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
